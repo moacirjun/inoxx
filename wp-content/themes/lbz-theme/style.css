@@ -1,0 +1,28 @@
+/*
+Theme Name: LBZ - theme
+Description: Tema padrão utilizando o bootstrap da LBZ
+Author: Moacir Carvalho de Lima Junior
+Version: 1.0
+Tags: responsive, white, bootstrap
+
+License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+License URI: http://creativecommons.org/licenses/by-sa/3.0/
+
+Tema padrão utilizando o bootstrap da LBZ
+*/
+@import url("lib/bootstrap/bootstrap.css");
+
+body {
+ 	padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.navbar-inverse .navbar-nav > .current_page_item > a,
+.navbar-inverse .navbar-nav > .current_page_item > a:hover,
+.navbar-inverse .navbar-nav > .current_page_item > a:focus,
+.navbar-inverse .navbar-nav > .current_page_parent > a,
+.navbar-inverse .navbar-nav > .current_page_parent > a:hover,
+.navbar-inverse .navbar-nav > .current_page_parent > a:focus {
+  color: #fff;
+  background-color: #080808;
+}
