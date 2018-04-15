@@ -1,5 +1,9 @@
 <?php
 
+require_once('bs4navwalker.php');
+
+register_nav_menu('top', "Top menu");
+
 add_filter( 'get_header_image_tag', 'lbztheme_header_image_tag', 10, 3 );
 
 function scripts_do_template() {

@@ -12,12 +12,13 @@
 		<?php endwhile; else: ?>
 		    <p><?php _e('Desculpe, esta página não existe.'); ?></p>
 		<?php endif; ?>
+		<?php comments_template() ?>
 	</div>
 
 	<hr>
-	<?php comments_template() ?>
 
 	<div class="col-md-4">
+		<h4>Sidebar</h4>
 		<?php get_sidebar() ?>
 	</div>
 </div>
