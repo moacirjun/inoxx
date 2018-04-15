@@ -12,5 +12,8 @@
 
 		- Agora pronto.
 		Só acessar o site "<hostname>/lbz-theme-wp" e comece a desenvolver seus sites para Wordpress usando o Bootstrap4 como principal framework Front-end.
+		
+		Versão com Bootstrap 4
+
 
 	Só bora!!!!
