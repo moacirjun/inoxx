@@ -13,8 +13,7 @@ Tema padrão utilizando o bootstrap da LBZ
 @import url("lib/bootstrap/bootstrap.css");
 
 body {
- 	padding-top: 50px;
-    padding-bottom: 20px;
+	
 }
 
 .navbar-inverse .navbar-nav > .current_page_item > a,
