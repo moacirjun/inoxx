@@ -23,10 +23,10 @@
 define('DB_NAME', 'lbz_theme_wp');
 
 /** Usuário do banco de dados MySQL */
-define('DB_USER', 'root');
+define('DB_USER', 'LBZ2018');
 
 /** Senha do banco de dados MySQL */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'dev@team#2018');
 
 /** Nome do host do MySQL */
 define('DB_HOST', 'localhost');

@@ -19,20 +19,14 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Estrutura da tabela `wp_commentmeta`
---
-
-CREATE USER 'LBZ2018'@'localhost' IDENTIFIED 
-WITH mysql_native_password AS 'dev@team#2018';
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, EXECUTE ON *.* TO 'LBZ2018'@'localhost' REQUIRE NONE 
-WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
-
--- --------------------------------------------------------
-
---
 -- Database: `lbz_theme_wp`
 --
 CREATE DATABASE IF NOT EXISTS `lbz_theme_wp` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE USER 'LBZ2018'@'localhost' IDENTIFIED BY 'dev@team#2018';
+
+GRANT ALL PRIVILEGES ON `lbz_theme_wp`.* TO 'LBZ2018'@'localhost';
+
 USE `lbz_theme_wp`;
 
 -- --------------------------------------------------------
