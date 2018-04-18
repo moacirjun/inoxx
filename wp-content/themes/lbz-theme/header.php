@@ -9,11 +9,6 @@
         <meta name="author" content="">
 
         <title><?php wp_title('|', true, 'right') ?> <?php bloginfo('name') ?></title>
-        
-        <!-- Custom styles for this template -->
-        <link type="text/css" rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>">
-
-        <?php wp_head() ?>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
