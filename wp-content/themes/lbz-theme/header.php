@@ -19,16 +19,21 @@
 
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-transp">
-            <div class="container">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transp">
+                <?php
+                    $img_directory = "http://localhost/lbz-theme-wp/wp-content/themes/lbz-theme/images/";
+                ?>
                 <a class="navbar-brand" href="<?php esc_url(home_url('/')) ?>">
-                    <h1>INOXX</h1>
+                    <img src="<?php echo $img_directory, "logo.png" ?>">
                 </a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu" 
-                        arial-contols="navmenu" arial-expanded="false" arial-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="navbar-dark ml-auto">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu" 
+                            arial-contols="navmenu" arial-expanded="false" arial-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
 
                 <?php
                 wp_nav_menu([
@@ -45,7 +50,7 @@
                 ]);
                 ?>
 
-            </div>
-        </nav>
+            </nav>
+        </div>
         
         <div class="container">
