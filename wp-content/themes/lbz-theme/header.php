@@ -19,31 +19,33 @@
 
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <a class="navbar-brand" href="<?php esc_url(home_url('/')) ?>">
-                LBZ
-            </a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-transp">
+            <div class="container">
+                <a class="navbar-brand" href="<?php esc_url(home_url('/')) ?>">
+                    <h1>INOXX</h1>
+                </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu" 
-                    arial-contols="navmenu" arial-expanded="false" arial-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu" 
+                        arial-contols="navmenu" arial-expanded="false" arial-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <?php
-               wp_nav_menu([
-                 'menu'            => 'top',
-                 'theme_location'  => 'top',
-                 'container'       => 'div',
-                 'container_id'    => 'navmenu',
-                 'container_class' => 'collapse navbar-collapse',
-                 'menu_id'         => false,
-                 'menu_class'      => 'navbar-nav ml-auto',
-                 'depth'           => 2,
-                 'fallback_cb'     => 'bs4navwalker::fallback',
-                 'walker'          => new bs4navwalker()
-            ]);
-            ?>
+                <?php
+                wp_nav_menu([
+                    'menu'            => 'top',
+                    'theme_location'  => 'top',
+                    'container'       => 'div',
+                    'container_id'    => 'navmenu',
+                    'container_class' => 'collapse navbar-collapse',
+                    'menu_id'         => false,
+                    'menu_class'      => 'navbar-nav ml-auto mr-auto',
+                    'depth'           => 2,
+                    'fallback_cb'     => 'bs4navwalker::fallback',
+                    'walker'          => new bs4navwalker()
+                ]);
+                ?>
 
+            </div>
         </nav>
-
-        <div class="container-fluid">
+        
+        <div class="container">
