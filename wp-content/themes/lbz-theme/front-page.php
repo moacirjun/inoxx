@@ -1,14 +1,6 @@
 <?php get_header(); ?>
 
-<div class="banner-topo">
-    <?php
-        $img_directory = "http://localhost/lbz-theme-wp/wp-content/themes/lbz-theme/images/";
-    ?>
-    <picture>
-        <img src="<?php echo $img_directory, 'banner-topo.jpg'?>">
-    </picture>
-</div>
-
+<?php $img_directory = esc_url(home_url('/')) . "wp-content/themes/lbz-theme/images/"; ?>
 <div class="widget">    
     <div class="widget-title">
         <div class="title-space"></div>

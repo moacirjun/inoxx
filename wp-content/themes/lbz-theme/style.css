@@ -17,6 +17,7 @@ body {
   background-position: left;
   background-repeat: repeat;
 }
+
 .navbar a.navbar-brand {
     background-color: #243646;
     color: #FFFFFF;
@@ -27,6 +28,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2000;
+    margin-left: 20px;
+}
+#slide-produtos {
+    margin-bottom: 10px;
+}
+.carousel-item {
+    height: 500px;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: auto;
 }
 
 .navbar a.navbar-brand img{
@@ -59,30 +73,34 @@ body {
   padding: 0px 50px;
 }
 
+#menu-top-menu {
+    padding-top: 12px;
+}
+
 .banner-topo { 
 }
 
 .banner-topo picture img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .widget {
-  background-color: #FFF;
-  display:flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+    background-color: #FFF;
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .widget-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 65px;
-  padding: 10px;
-  background-color: #b0223a;
-  color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    padding: 10px;
+    background-color: #b0223a;
+    color: #FFF;
 }
 
 .title-space {
@@ -94,8 +112,8 @@ body {
 }
 
 .widget-content {
-  flex: 1;
-  display: flex;
+    flex: 1;
+    display: flex;
 }
 
 .widget-img {
@@ -104,12 +122,13 @@ body {
 
 .widget-text {
     flex: 1;
+    padding: 15px;
 }
 
 .widget-img img {
-  width: 100%;
-  height: auto;
-  margin-top: -65px;
+    width: 100%;
+    height: auto;
+    margin-top: -65px;
 }
 
 .widget-title h3{
@@ -120,9 +139,9 @@ body {
 }
 
 footer {
-  background-color: #243646;
-  color: #FFF;
-  text-align: center;
+    background-color: #243646;
+    color: #FFF;
+    text-align: center;
 }
 
 .copy-right{
@@ -179,32 +198,71 @@ footer {
         background-color: #253646;
     }
     
-    .navbar a.navbar-brand h1 {
+    .navbar a.navbar-brand {
         height: inherit;
-        width: inherit;
-        text-align: center;
-        line-height: 30px;
+        width: 65px;
         position: relative;
+    }
+    .navbar a.navbar-brand img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .navbar-light .navbar-nav .show > .nav-link,
+    .navbar-light .navbar-nav .active > .nav-link,
+    .navbar-light .navbar-nav .nav-link.show,
+    .navbar-light .navbar-nav .nav-link.active {
+        color: #FFFFFF;
+    }
+    
+    .navbar-light .navbar-nav .nav-link {
+        color: #FFFFFF88;
+    }
+    
+    .navbar-light .navbar-nav .show > .nav-link,
+    .navbar-light .navbar-nav .active > .nav-link,
+    .navbar-light .navbar-nav .nav-link.show,
+    .navbar-light .navbar-nav .nav-link.active {
+        border-bottom: 0px;
+    }
+    
+    #slide-produtos {
+        margin-top: 10px;
+    }
+    .carousel-item {
+        height: 400px;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .widget-img img {
+        margin-top: 0px;
+    }
+
+    .widget-title {
+        height: 40px;
+    }
+
+    .widget-title h3{
+        font-size: 16px;
+    }
+    
+    .carousel-item {
+        height: 300px;
     }
 }
 
 @media only screen and (min-width: 571px) and (max-width:768px) {
  
-    .widget-img img {
-      margin-top: 0px;
-    }
-
-    .widget-title {
-      height: 40px;
-    }
-
-    .widget-title h3{
-        font-size: 16px;
-    }    
+        
 }
 
 @media only screen and (max-width: 570px) {
-    .widget {
+    .widget-content {
         flex-direction: column;
+    }
+    
+    .carousel-item {
+        height: 150px;
     }
 }
