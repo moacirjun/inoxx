@@ -111,6 +111,17 @@ body {
     flex: 1;
 }
 
+.widget-title a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.widget-title a:hover {
+    font-weight: 400;
+    letter-spacing: 2px;
+    transition: 500ms;
+}
+
 .widget-content {
     flex: 1;
     display: flex;
@@ -245,6 +256,11 @@ footer {
 
     .widget-title h3{
         font-size: 16px;
+        text-align: left;
+    }
+    
+    .title-space {
+        display: none;
     }
     
     .carousel-item {
