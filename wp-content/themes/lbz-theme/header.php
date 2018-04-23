@@ -25,7 +25,7 @@
                 <?php
                     $img_directory = esc_url(home_url('/')) . "wp-content/themes/lbz-theme/images/";
                 ?>
-                <a class="navbar-brand" href="<?php esc_url(home_url('/')) ?>">
+                <a class="navbar-brand" href="<?php echo esc_url(home_url('/')) ?>">
                     <img src="<?php echo $img_directory, "logo.png" ?>">
                 </a>
 
