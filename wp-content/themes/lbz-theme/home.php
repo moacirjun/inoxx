@@ -24,18 +24,28 @@
 
                 <div class="widget-content 
                      <?php if (($count % 2) == 1) { echo ""; } else { echo "flex-reverse";} ?>">
-                    <div class="widget-img">
+                    <div class="widget-img prods
+                    <?php 
+                        if (($count % 2) == 1) {
+                            echo '';
+                        }
+                        else {
+                            echo ' reverse';
+                        }
+                    ?>">
                         <picture>
                             <?php $img_directory = esc_url(home_url('/')) . "wp-content/themes/lbz-theme/images/"; ?>
                             <img src="
                             <?php 
                                 if (($count % 2) == 1) {
-                                    echo $img_directory, 'widget-servicos.png';
+                                    echo $img_directory, 'banner-topo.jpg';
                                 }
                                 else {
-                                    echo $img_directory, 'widget-produtos.png';
+                                    echo $img_directory, 'banner-topo-3.jpg';
                                 }
                             ?>">
+                            <div class="corte"></div>
+                            <div class="corte vermelho"></div>
                         </picture>
                     </div>
 

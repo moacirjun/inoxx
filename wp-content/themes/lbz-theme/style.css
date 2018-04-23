@@ -144,14 +144,14 @@ body {
     display: flex;
 }
 
-.widget-img {
-    height: 435px;
-    width: calc(500px / 3 * 4);
-}
-
 .widget-text {
     flex: 1;
     padding: 15px;
+}
+
+.widget-img {
+    height: 435px;
+    width: calc(500px / 3 * 4);
 }
 
 .widget-img img {
@@ -180,6 +180,31 @@ body {
     border-bottom: 65px solid #b0223a;
 }
 
+.widget-img.prods {
+    height: 335px;
+    width: calc(400px / 3 * 4);
+}
+
+.widget-img.prods img {
+    width: calc(400px / 3 * 4);
+    height: 400px;
+}
+
+.widget-img.prods .corte {
+    height: 400px;
+    border-left: 80px solid rgba(255, 255, 255, 0);
+    border-bottom: 400px solid rgba(255, 255, 255, 1);
+}
+
+.widget-img.prods .corte.vermelho {
+    height: 65px;
+    width: 13px;
+    
+    top: -465px;
+    border-left: 13px solid #b0223a00;
+    border-bottom: 65px solid #b0223a;
+}
+
 .widget-img.reverse .corte {
     border-right: 100px solid rgba(255, 255, 255, 0);
     border-top: 500px solid rgba(255, 255, 255, 1);
@@ -191,6 +216,21 @@ body {
 .widget-img.reverse .corte.vermelho {
     width: 101px;
     top: -565px;
+    border-right: 13px solid #b0223a00;
+    border-top: 65px solid #b0223a;
+}
+
+.widget-img.reverse.prods .corte {
+    border-right: 80px solid rgba(255, 255, 255, 0);
+    border-top: 400px solid rgba(255, 255, 255, 1);
+    border-bottom: 0px;
+    border-left: 0px;
+    margin-left: 0px;
+}
+
+.widget-img.reverse.prods .corte.vermelho {
+    width: 81px;
+    top: -465px;
     border-right: 13px solid #b0223a00;
     border-top: 65px solid #b0223a;
 }
@@ -281,14 +321,39 @@ footer {
         border-left: 16.25px solid #b0223a00;
     }
     
+    .widget-img.prods {
+        height: 235px;
+        width: calc(300px / 3 * 4);
+    }
+
+    .widget-img.prods img {
+        width: calc(300px / 3 * 4);
+        height: 300px;
+    }
+
+    .widget-img.prods .corte {
+        height: 300px;
+        border-left: 60px solid rgba(255, 255, 255, 0);
+        border-bottom: 300px solid rgba(255, 255, 255, 1);
+    }
+
+    .widget-img.prods .corte.vermelho {
+        height: 65px;
+        width: 13px;
+
+        top: -365px;
+        border-left: 13px solid #b0223a00;
+        border-bottom: 65px solid #b0223a;
+    }
+    
     .widget-img.reverse .corte {
-        border-top: 400px solid rgba(255, 255, 255, 1);
+        border-top: 300px solid rgba(255, 255, 255, 1);
         border-bottom: 0px;
         border-left: 0px;
     }
 
     .widget-img.reverse .corte.vermelho {
-        top: -465px;
+        top: -365px;
         border-right: 17px solid #b0223a00;
         border-top: 65px solid #b0223a;
     }
