@@ -34,7 +34,7 @@ body {
 
 .navbar a.navbar-brand.mobile {
     height: 100%;
-    transition: all 500ms;
+    transition: all 300ms;
 }
 
 #slide-produtos {
@@ -58,7 +58,7 @@ body {
 .navbar a.navbar-brand img.mobile {
     width: 65px;
     height: auto;
-    transition: all 500ms;
+    transition: all 300ms;
 }
 
 .bg-transp {
