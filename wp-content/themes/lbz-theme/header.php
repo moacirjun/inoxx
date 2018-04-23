@@ -20,7 +20,7 @@
     <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-transp">
+        <nav id="navbar-menu" class="navbar navbar-expand-lg navbar-light fixed-top bg-transp">
             <div class="container">
                 <?php
                     $img_directory = esc_url(home_url('/')) . "wp-content/themes/lbz-theme/images/";

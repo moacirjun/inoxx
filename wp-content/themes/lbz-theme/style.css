@@ -31,8 +31,15 @@ body {
     z-index: 2000;
     margin-left: 20px;
 }
+
+.navbar a.navbar-brand.mobile {
+    height: 100%;
+    transition: all 500ms;
+}
+
 #slide-produtos {
     margin-bottom: 10px;
+    margin-top: 60px;
 }
 .carousel-item {
     height: 500px;
@@ -48,8 +55,18 @@ body {
     height: auto;
 }
 
+.navbar a.navbar-brand img.mobile {
+    width: 65px;
+    height: auto;
+    transition: all 500ms;
+}
+
 .bg-transp {
   background-color: #FFFFFF00;
+}
+
+.bg-azul-marinho {
+    background-color: #253646;
 }
 
 .nav-link {
@@ -238,7 +255,7 @@ footer {
     }
     
     #slide-produtos {
-        margin-top: 10px;
+        margin-top: 64px;
     }
     .carousel-item {
         height: 400px;
