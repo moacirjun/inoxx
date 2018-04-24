@@ -297,7 +297,7 @@ footer {
     flex-direction: row-reverse;
 }
 
-@media only screen and (max-width:1080px) {
+@media only screen and (max-width:1200px) {
     .widget-img {
         height: 335px;
         width: calc(400px / 3 * 4);
@@ -321,6 +321,18 @@ footer {
         border-left: 16.25px solid #b0223a00;
     }
     
+    .widget-img.reverse .corte {
+        border-top: 400px solid rgba(255, 255, 255, 1);
+        border-bottom: 0px;
+        border-left: 0px;
+    }
+
+    .widget-img.reverse .corte.vermelho {
+        top: -465px;
+        border-right: 17px solid #b0223a00;
+        border-top: 65px solid #b0223a;
+    }
+    
     .widget-img.prods {
         height: 235px;
         width: calc(300px / 3 * 4);
@@ -333,28 +345,28 @@ footer {
 
     .widget-img.prods .corte {
         height: 300px;
-        border-left: 60px solid rgba(255, 255, 255, 0);
+        border-left: 100px solid rgba(255, 255, 255, 0);
         border-bottom: 300px solid rgba(255, 255, 255, 1);
     }
 
     .widget-img.prods .corte.vermelho {
-        height: 65px;
-        width: 13px;
-
         top: -365px;
-        border-left: 13px solid #b0223a00;
+        border-left: 22px solid #b0223a00;
         border-bottom: 65px solid #b0223a;
     }
     
-    .widget-img.reverse .corte {
+    .widget-img.reverse.prods .corte {
+        border-right: 100px solid rgba(255, 255, 255, 0);
         border-top: 300px solid rgba(255, 255, 255, 1);
         border-bottom: 0px;
         border-left: 0px;
+        margin-left: 0px;
     }
 
-    .widget-img.reverse .corte.vermelho {
+    .widget-img.reverse.prods .corte.vermelho {
+        width: 100px;
         top: -365px;
-        border-right: 17px solid #b0223a00;
+        border-right: 22px solid #b0223a00;
         border-top: 65px solid #b0223a;
     }
 }
@@ -425,9 +437,33 @@ footer {
     .widget-img.reverse .corte {
         border-top: 300px solid rgba(255, 255, 255, 1);
     }
+    
+    .widget-img.prods {
+        height: 210px;
+        width: calc(210px / 3 * 4);
+    }
+
+    .widget-img.prods img {
+        width: calc(210px / 3 * 4);
+        height: 210px;
+    }
+
+    .widget-img.prods .corte {
+        height: 210px;
+        border-left: 100px solid rgba(255, 255, 255, 0);
+        border-bottom: 210px solid rgba(255, 255, 255, 1);
+    }
+    
+    .widget-img.reverse.prods .corte {
+        border-right: 100px solid rgba(255, 255, 255, 0);
+        border-top: 210px solid rgba(255, 255, 255, 1);
+        border-bottom: 0px;
+        border-left: 0px;
+        margin-left: 0px;
+    }
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:768px) {
     .widget-img img {
         margin-top: 0px;
     }
@@ -480,63 +516,70 @@ footer {
         height: 150px;
     }
     
-    .widget-img {
+    .widget-img,
+    .widget-img.prods {
         width: 100%;
         height: auto;
     }
     
-    .widget-img img {
+    .widget-img img,
+    .widget-img.prods img {
         width: 100%;
         height: 300px;
     }
 
-    .widget-img .corte {
+    .widget-img .corte,
+    .widget-img.prods .corte {
         width: 80px;
         height: 100%;
         top: 0px;
         border-bottom: 300px solid rgba(255, 255, 255, 1);
     }
-    
-    .widget-img.reverse .corte {
-        border-top: 300px solid rgba(255, 255, 255, 1);
-    }
 }
 
 @media only screen and (max-width:426px) {
-    .widget-img img{
+    .widget-img img,
+    .widget-img.prods img {
         width: 100%;
         height: 250px;
     }
     
-    .widget-img .corte {
+    .widget-img .corte,
+    .widget-img.prods corte {
         border-bottom: 250px solid rgba(255, 255, 255, 1);
     }
     
-    .widget-img.reverse .corte {
+    .widget-img.reverse .corte,
+    .widget-img.prods.reverse .corte {
         border-top: 250px solid rgba(255, 255, 255, 1);
     }
 }
 @media only screen and (max-width:376px) {
-    .widget-img img{
+    .widget-img img,
+    .widget-img.prods img{
         width: 100%;
         height: 200px;
     }
     
-    .widget-img .corte {
+    .widget-img .corte,
+    .widget-img.prods .corte{
         border-bottom: 200px solid rgba(255, 255, 255, 1);
     }
 }
 @media only screen and (max-width:321px) {
-    .widget-img img{
+    .widget-img img,
+    .widget-img.prods img{
         width: 100%;
         height: 170px;
     }
     
-    .widget-img .corte {
+    .widget-img .corte,
+    .widget-img.prods .corte{
         border-bottom: 170px solid rgba(255, 255, 255, 1);
     }
     
-    .widget-img.reverse .corte {
+    .widget-img.reverse .corte,
+    .widget-img.reverse.prods .corte{
         border-top: 170px solid rgba(255, 255, 255, 1);
     }
 }
