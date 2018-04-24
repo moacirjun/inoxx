@@ -7,13 +7,6 @@
         
         <?php $count = 1 ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-            <!--<h2><a href="<?php //the_permalink() ?>"><?php //the_title(); ?></a></h2>
-            <div class="entry-content">
-                <?php //echo ucfirst(get_the_time('l, j \d\e F \d\e Y')); ?>
-            </div>
-            <hr>-->
-            
             
             <div class="widget">    
                 <div class="widget-title 
@@ -42,7 +35,7 @@
                     </div>
 
                     <div class="widget-text">
-                        <p><?php the_content(); ?></p>
+                        <p><?php wp_limit_post(150, " [...]") ?></p>
                         <small><?php echo ucfirst(get_the_time('l, j \d\e F \d\e Y')); ?></small>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
     <div class="widget-content">
         <div class="widget-img">
             <picture>
-                <img src="<?php echo $img_directory, 'banner-topo.jpg'?>">
+                <img src="<?php echo $img_directory, 'imagem-servicos.jpg'?>">
             </picture>
                 <div class="corte"></div>
                 <div class="corte vermelho"></div>
@@ -32,7 +32,7 @@
     <div class="widget-content flex-reverse">
         <div class="widget-img reverse">
             <picture>
-                <img src="<?php echo $img_directory, 'banner-topo-2.jpg'?>">
+                <img src="<?php echo $img_directory, 'imagem-produtos.jpg'?>">
                 <div class="corte"></div>
                 <div class="corte vermelho"></div>
             </picture>
