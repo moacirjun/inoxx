@@ -35,15 +35,7 @@
                     ?>">
                         <picture>
                             <?php $img_directory = esc_url(home_url('/')) . "wp-content/themes/lbz-theme/images/"; ?>
-                            <img src="
-                            <?php 
-                                if (($count % 2) == 1) {
-                                    echo $img_directory, 'banner-topo.jpg';
-                                }
-                                else {
-                                    echo $img_directory, 'banner-topo-3.jpg';
-                                }
-                            ?>">
+                            <?php the_post_thumbnail() ?>
                             <div class="corte"></div>
                             <div class="corte vermelho"></div>
                         </picture>
