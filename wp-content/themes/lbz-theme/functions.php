@@ -29,8 +29,8 @@ if (function_exists('register_sidebar')) {
     register_sidebar(array(
         'before_title' => '<h3>',
         'after_title' => '</h3>',
-        'before_widget' => '<div class="row"><div class="col-md-12">',
-        'after_widget' => '</div></div>',
+        'before_widget' => '<div class="row sticky-top"><div class="col-md-12"><div class="sidebar">',
+        'after_widget' => '</div></div></div>',
     ));
 }
 

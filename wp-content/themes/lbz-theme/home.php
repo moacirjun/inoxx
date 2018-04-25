@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 <div class="row">
-    
-    <div class="col-md-9">
+
+    <div class="col-lg-9">
         <h1 id="page-title">Produtos</h1>
         
         <?php $count = 1 ?>
@@ -46,7 +46,7 @@
         <?php endif; ?>
     </div>
     
-    <div class="col-md-3">
+    <div class="col-lg-3">
         <?php get_sidebar() ?>
     </div>
 </div>
