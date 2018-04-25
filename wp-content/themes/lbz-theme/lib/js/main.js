@@ -60,4 +60,16 @@ function marginAutoSidebar() {
     document.querySelector(".sidebar").style.marginTop = marginTop + "px";
 }
 
+function getProdutos(category) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+//            var myObj = JSON.parse(this.responseText);
+            document.getElementById("prodsContent").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", ajaxprodutos.ajaxurl + "?action=ajax_pagination&category=" + category, true);
+    xmlhttp.send();
+}
+
 

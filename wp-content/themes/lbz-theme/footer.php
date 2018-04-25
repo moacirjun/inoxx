@@ -33,7 +33,11 @@
     
     <!-- Custom styles for this template -->
     <link type="text/css" rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>">
-    
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var ajaxprodutos = {"ajaxurl":"http:\/\/localhost\/inoxx\/wp-admin\/admin-ajax.php"};
+    /* ]]> */
+    </script>
     <?php wp_head() ?>    
     <?php wp_footer() ?>
 </body>

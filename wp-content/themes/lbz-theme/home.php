@@ -2,9 +2,37 @@
 
 <div class="row">
 
+    <div class="col-lg-3">
+        <?php
+//            get_sidebar();
+            $taxonomies = get_object_taxonomies((object) array('post_type' => $post_type));
+            
+            $terms = get_terms('category', 
+                        array(
+                            'orderby' => 'name',
+                            'order' => 'ASC',
+                            'hide_empty' => '1'
+                        )
+                    );
+        ?>
+        <div class="row sticky-top">
+            <div class="col-lg-12">
+                <div class="sidebar">
+                    <h3>Categorias</h3>
+                    <ul>
+                        <li><p onclick="getProdutos('todas')" class="active">Todas</p></li>
+                        <?php foreach($terms as $term) : ?>
+                        <li><p onclick="getProdutos('<?php echo $term->slug ?>')"><?php echo $term->name ?></p></li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="col-lg-9">
         <h1 id="page-title">Produtos</h1>
-        
+        <div id="prodsContent"></div>
         <?php $count = 1 ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             
@@ -46,9 +74,6 @@
         <?php endif; ?>
     </div>
     
-    <div class="col-lg-3">
-        <?php get_sidebar() ?>
-    </div>
 </div>
 
 <?php get_footer(); ?>

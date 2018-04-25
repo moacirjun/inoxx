@@ -21,6 +21,51 @@ function scripts_do_template() {
     wp_enqueue_script("jquery");
     wp_enqueue_script("bootstrap");
     wp_enqueue_script("main");
+    
+    
+    wp_localize_script( 'ajax-produtos', 'ajaxprodutos', array(
+            'ajaxurl' => admin_url( 'admin-ajax.php' )
+    ));
+}
+
+add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
+add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
+
+function my_ajax_pagination() {
+
+    $category_slug = filter_input(INPUT_GET, "category");
+    $query = new WP_Query( array("category_name" => $category_slug) );
+    $arrayPosts = array();
+    
+    if( $query->have_posts() ) {
+        while( $query->have_posts() ) {
+            $query->the_post();
+            $query->the_title();
+            $query->the_permalink();
+            
+            $arrayPosts[] = array(
+                //'link' => $query->the_permalink(),
+                'title' => $query->post->post_title,
+//                'thumbnail' => $query->post->post_t,
+                'time' => $query->post->post_date,
+                'content' => $query->post->post_content,
+            );
+            
+//            echo "Conteúdo do post:";
+//            echo $query->post->post_content;
+//            echo '<br>';
+        }
+    }
+    else {
+        echo 'Sem Posts para essa categoria';
+    }
+    
+    echo '<pre>';
+    echo "Array de Posts";
+    print_r($arrayPosts);
+    echo '</pre>';
+    
+    die();
 }
 
 add_action("wp_enqueue_scripts", "scripts_do_template");

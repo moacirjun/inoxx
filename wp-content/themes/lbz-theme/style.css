@@ -181,14 +181,15 @@ footer {
     margin: 10px 0px;
 }
 
-.sidebar ul li a {
+.sidebar ul li p {
     padding: 5px 0px;
     color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
 }
 
-.sidebar ul li a:hover,
-.sidebar ul li a:active {
+.sidebar ul li p:hover,
+.sidebar ul li p:active,
+.sidebar ul li p.active {
     color: rgba(0, 0, 0, 1);
     border-bottom: 2px solid #b02139;
     transition: all 250ms;
