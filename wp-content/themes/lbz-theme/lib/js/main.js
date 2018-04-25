@@ -37,23 +37,24 @@ function navScroll() {
 }
 
 function marginAutoSidebar() {
-    //Bypass disposutivos mobile.
-    if (window.screen.width <= 990) {
+    var marginTop = 0, header = document.querySelector("header"), 
+            sidebar = document.querySelector(".sidebar");
+       
+    if (sidebar === null || sidebar === 'undefined') {
         return;
     }
     
-    if (document.querySelector(".sidebar") === null || 
-            document.querySelector(".sidebar") === 'undefined') {
-        return;
-    }
-    
-    var marginTop = 0, header = document.querySelector("header");
     
     if (window.scrollY >= header.scrollHeight) {
         marginTop = window.scrollY - header.scrollHeight;
         if (marginTop > 60) {
             marginTop = 60;
         }
+    }
+    
+    //Bypass disposutivos mobile.
+    if (window.screen.width <= 990) {
+        marginTop = 0;
     }
     
     document.querySelector(".sidebar").style.marginTop = marginTop + "px";
