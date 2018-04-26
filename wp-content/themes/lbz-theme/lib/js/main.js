@@ -1,14 +1,6 @@
 window.onscroll = function() {navScroll(); marginAutoSidebar();};
 
-window.onload = function() {
-    var pageTitle = document.querySelector("#page-title"),
-            vTop = document.querySelector("header").scrollHeight;
-    if (pageTitle === null || pageTitle === 'undefined') {
-        return;
-    }
-    
-    window.scroll({top: vTop, left:0, behavior:'smooth'});
-}
+window.onload = function() {scrollToPageTitle(); navScroll()}
 
 function navScroll() {
     //Bypass disposutivos mobile.
@@ -36,6 +28,16 @@ function navScroll() {
     }
 }
 
+function scrollToPageTitle() {
+    var pageTitle = document.querySelector("#page-title"),
+            vTop = document.querySelector("header").scrollHeight;
+    if (pageTitle === null || pageTitle === 'undefined') {
+        return;
+    }
+    
+    window.scroll({top: vTop, left:0, behavior:'smooth'});
+}
+
 function marginAutoSidebar() {
     var marginTop = 0, header = document.querySelector("header"), 
             sidebar = document.querySelector(".sidebar");
@@ -56,19 +58,23 @@ function marginAutoSidebar() {
     if (window.screen.width <= 990) {
         marginTop = 0;
     }
-    
+//    
     sidebar.style.marginTop = marginTop + "px";
 }
 
 function getProdutos(category, button) {
     var xmlhttp = new XMLHttpRequest(),
-            preLoader = document.querySelector("#pre-loader");
+            preLoader = document.querySelector("#pre-loader"),
+            containerProds = document.querySelector("#produtos"),
+            listProds = document.querySelector("#prodsContent");
     
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-//            var myObj = JSON.parse(this.responseText);
-            document.getElementById("prodsContent").innerHTML = this.responseText;
-            preLoader.style.display = "none";
+            
+            listProds.innerHTML = this.responseText;
+            
+            preLoader.classList.add("escondida-animada");
+            scrollToPageTitle();
         }
     };
     
@@ -76,7 +82,8 @@ function getProdutos(category, button) {
     
     btnAtivo.classList.remove("active");
     button.classList.add("active");
-    preLoader.style.display = "block";
+    preLoader.classList.remove("escondida");
+    preLoader.classList.remove("escondida-animada");
     xmlhttp.open("GET", ajaxprodutos.ajaxurl + "?action=get_produtos&category=" + category, true);
     xmlhttp.send();
 }

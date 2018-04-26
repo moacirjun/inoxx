@@ -42,7 +42,7 @@ function getProdutos() {
         $query = new WP_Query( array("category_name" => $category_slug) );
     }
 
-    $count = 0;
+    $count = 1;
     
     if( $query->have_posts() ) {
         while( $query->have_posts() ) {
