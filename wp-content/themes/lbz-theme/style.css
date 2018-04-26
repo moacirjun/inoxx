@@ -181,19 +181,32 @@ footer {
     margin: 10px 0px;
 }
 
-.sidebar ul li p {
+.sidebar ul li span {
     padding: 5px 0px;
     color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
 }
 
-.sidebar ul li p:hover,
-.sidebar ul li p:active,
-.sidebar ul li p.active {
+.sidebar ul li span:hover,
+.sidebar ul li span:active,
+.sidebar ul li span.active {
     color: rgba(0, 0, 0, 1);
     border-bottom: 2px solid #b02139;
     transition: all 250ms;
     text-decoration: none;
+    cursor: pointer;
+}
+
+/*=========================== pre loader produtos ============================*/
+#pre-loader {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 999999999;
+    display: none;
 }
 
 @media only screen and (max-width:990px) {

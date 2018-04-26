@@ -28,42 +28,57 @@ function scripts_do_template() {
     ));
 }
 
-add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
-add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
+add_action( 'wp_ajax_nopriv_get_produtos', 'getProdutos' );
+add_action( 'wp_ajax_get_produtos', 'getProdutos' );
 
-function my_ajax_pagination() {
+function getProdutos() {
 
     $category_slug = filter_input(INPUT_GET, "category");
-    $query = new WP_Query( array("category_name" => $category_slug) );
-    $arrayPosts = array();
+    
+    if ($category_slug === "todas") {
+        $query = new WP_Query(array("all"));
+    }
+    else {
+        $query = new WP_Query( array("category_name" => $category_slug) );
+    }
+
+    $count = 0;
     
     if( $query->have_posts() ) {
         while( $query->have_posts() ) {
-            $query->the_post();
-            $query->the_title();
-            $query->the_permalink();
+            $query->the_post(); ?>
             
-            $arrayPosts[] = array(
-                //'link' => $query->the_permalink(),
-                'title' => $query->post->post_title,
-//                'thumbnail' => $query->post->post_t,
-                'time' => $query->post->post_date,
-                'content' => $query->post->post_content,
-            );
-            
-//            echo "Conteúdo do post:";
-//            echo $query->post->post_content;
-//            echo '<br>';
+            <div class="widget">    
+                <div class="widget-title 
+                     <?php echo (($count % 2) == 1) ? "" : "flex-reverse" ?>">
+                    <div class="title-space"></div>
+                    <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+                </div>
+
+                <div class="widget-content 
+                     <?php echo (($count % 2) == 1) ? "" : "flex-reverse" ?>">
+                    <div class="widget-img prods <?php echo (($count % 2) == 1) ? '' : 'reverse' ?>">
+                        <picture>
+                            <?php the_post_thumbnail() ?>
+                            <div class="corte"></div>
+                            <div class="corte vermelho"></div>
+                        </picture>
+                    </div>
+
+                    <div class="widget-text">
+                        <p><?php wp_limit_post(150, " [...]") ?></p>
+                        <small><?php echo ucfirst(get_the_time('l, j \d\e F \d\e Y')); ?></small>
+                    </div>
+                </div>
+            </div>
+        <?php $count++ ?>
+    
+    <?php
         }
     }
     else {
         echo 'Sem Posts para essa categoria';
     }
-    
-    echo '<pre>';
-    echo "Array de Posts";
-    print_r($arrayPosts);
-    echo '</pre>';
     
     die();
 }

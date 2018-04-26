@@ -57,18 +57,27 @@ function marginAutoSidebar() {
         marginTop = 0;
     }
     
-    document.querySelector(".sidebar").style.marginTop = marginTop + "px";
+    sidebar.style.marginTop = marginTop + "px";
 }
 
-function getProdutos(category) {
-    var xmlhttp = new XMLHttpRequest();
+function getProdutos(category, button) {
+    var xmlhttp = new XMLHttpRequest(),
+            preLoader = document.querySelector("#pre-loader");
+    
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
 //            var myObj = JSON.parse(this.responseText);
             document.getElementById("prodsContent").innerHTML = this.responseText;
+            preLoader.style.display = "none";
         }
     };
-    xmlhttp.open("GET", ajaxprodutos.ajaxurl + "?action=ajax_pagination&category=" + category, true);
+    
+    var btnAtivo = document.querySelector(".sidebar ul li span.active");
+    
+    btnAtivo.classList.remove("active");
+    button.classList.add("active");
+    preLoader.style.display = "block";
+    xmlhttp.open("GET", ajaxprodutos.ajaxurl + "?action=get_produtos&category=" + category, true);
     xmlhttp.send();
 }
 
