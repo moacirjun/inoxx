@@ -231,7 +231,6 @@ footer {
         width: calc(100vw/5);
         top: calc( (100vh/2) - (100vh/10) );
         left: calc( (100vw/2) - (100vw/10) );
-        /*border-radius: calc(100vw/6);*/
         background: rgba(255, 255, 255, 0);
     }
     100%{
