@@ -95,7 +95,24 @@ function getProdutosPage(button) {
             listProds = document.querySelector("#prodsContent"),
             btnCategoryAtivo = document.querySelector(".sidebar ul li span.active"),
             category = btnCategoryAtivo.getAttribute("value");
-            paged = button.getAttribute("value");
+            var btnDataValue = button.getAttribute("value");
+            
+        var paginaAtivada = document.querySelector("nav ul.pagination li.active span");
+        paginaAtivada = paginaAtivada.getAttribute("value");
+        
+        switch (btnDataValue) {
+            case "previous": 
+                alert(paginaAtivada.valueOf() - 1);
+                paged = (paginaAtivada.valueOf() - 1);
+                break;
+            case "next" :
+                alert(Number(paginaAtivada) + 1);
+                paged = (Number(paginaAtivada) + 1);
+                break;
+            default: 
+                alert(btnDataValue);
+                paged = (btnDataValue);
+        }
     
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -107,14 +124,10 @@ function getProdutosPage(button) {
         }
     };
     
-    var btnPageAtivo = document.querySelector("nav ul.pagination li.active");
-    var NovoBtnPageAtivo = button.parentElement;
-    
-//    btnPageAtivo.classList.remove("active");
-//    NovoBtnPageAtivo.classList.add("active");
     preLoader.classList.remove("escondida");
     preLoader.classList.remove("escondida-animada");
-    xmlhttp.open("GET", ajaxprodutos.ajaxurl + "?action=get_produtos&category=" + category + "&page=" + paged, true);
+    xmlhttp.open("GET", ajaxprodutos.ajaxurl +"?action=get_produtos&category=" 
+                            + category + "&page=" + paged, true);
     xmlhttp.send();
 }
 
