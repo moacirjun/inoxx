@@ -43,6 +43,11 @@
                 <?php endwhile; else: ?>
                     <p><?php _e('Desculpe, ainda não temos produtos cadastrados.'); ?></p>
                 <?php endif; ?>
+                    <?php
+                        if(function_exists('wp_pagination') ) {
+                            wp_pagination();
+                        }
+                    ?>
             </div>
         </div>
         <div class="ani-produtos"></div>
@@ -67,14 +72,13 @@
                     <h3>Categorias</h3>
                     <ul>
                         <li>
-                            <span onclick="getProdutos('todas', this)" class="active">
+                            <span onclick="getProdutos(this)" value="todas" class="active">
                                 Todas
                             </span>
                         </li>
                         <?php foreach($terms as $term) : ?>
                         <li>
-                            <span onclick="getProdutos(
-                                '<?php echo $term->slug ?>', this)">
+                            <span onclick="getProdutos(this)" value="<?php echo $term->slug ?>">
                                 <?php echo $term->name ?>
                             </span>
                         </li>

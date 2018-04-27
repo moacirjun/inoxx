@@ -256,6 +256,27 @@ footer {
     flex-direction: column;
     overflow: hidden;
 }
+/*============================================================================*/
+ul.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.page-link {
+    color: #b0223a;
+}
+
+.page-item.active .page-link {
+    background-color: #b0223a;
+    border-color: #b0223a;
+}
+
+.page-link:hover {
+    color: #b0223a;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
 
 @media only screen and (max-width:990px) {
     

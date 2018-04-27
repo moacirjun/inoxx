@@ -34,14 +34,21 @@ add_action( 'wp_ajax_get_produtos', 'getProdutos' );
 function getProdutos() {
 
     $category_slug = filter_input(INPUT_GET, "category");
+    $page = filter_input(INPUT_GET, "page");
+    $args = array();
     
-    if ($category_slug === "todas") {
-        $query = new WP_Query(array("all"));
+    if ($category_slug == "todas") {
+        $args[] = "all";
     }
     else {
-        $query = new WP_Query( array("category_name" => $category_slug) );
+        $args["category_name"] =  $category_slug;
     }
-
+    
+    if ( isset($page) ) {
+        $args["paged"] =  $page;
+    }
+    
+    $query = new WP_Query( $args );
     $count = 1;
     
     if( $query->have_posts() ) {
@@ -75,6 +82,10 @@ function getProdutos() {
     
     <?php
         }
+            
+        if(function_exists('wp_pagination') ) {
+            wp_pagination($query);
+        }           
     }
     else {
         echo 'Sem Posts para essa categoria';
@@ -134,4 +145,69 @@ function wp_limit_post($max_char, $more_link_text = '[...]',$notagp = false, $st
       echo "</p>";
       }
    }
+}
+
+/**
+ *
+ * Paginação utilizando a função paginate_links
+ * @param  WP_Query $query Contém uma $query customizada
+ *
+ */
+function wp_pagination( $query=null, $wpcpn_posts=null )
+{
+    global $wp_query;
+    $query = $query ? $query : $wp_query;
+    $big = 999999999;
+    $max_num_pages = $query->max_num_pages;
+
+    $paginate = paginate_links(
+        array(
+            'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+            'type'      => 'array',
+            'total'     => $max_num_pages,
+            'format'    => '?paged=%#%',
+            'current'   => max( 1, get_query_var('paged') ),
+            'prev_text' => __('&laquo;'),
+            'next_text' => __('&raquo;'),
+        )
+    );
+    if ( $max_num_pages > 1 && $paginate ) {
+        echo '<nav arial-label="Page navigation example">';
+        echo '<ul class="pagination">';
+       
+        $currentPage = ($query->query_vars["paged"]) ? $query->query_vars["paged"] : 1;
+        $PreviousDisbled = ($currentPage == 1) ? 'disabled': '';
+        $NextDisbled = ($currentPage == $max_num_pages) ? 'disabled': '';
+        
+        echo 
+            '<li class="page-item ', $PreviousDisbled, '">',
+                '<span class="page-link" value="previous"',
+                        'onclick="getProdutosPage(this)">',
+                    'Anterior',
+                '</span>',
+            '</li>';
+        
+        for ($count = 1; $count <= $max_num_pages; $count++) {
+            
+            $active = ($count == $currentPage) ? "active" : "";
+            echo 
+                '<li class="page-item ', $active, '">',
+                    '<span class="page-link" value="', $count, '"',
+                            'onclick="getProdutosPage(this)">',
+                        $count,
+                    '</span>',
+                '</li>';
+        }
+        
+        echo 
+            '<li class="page-item ', $NextDisbled, '">',
+                '<span class="page-link" value="next"',
+                        'onclick="getProdutosPage(this)">',
+                    'Próxima',
+                '</span>',
+            '</li>';
+
+        echo '</ul>';
+        echo '</nav>';
+    }
 }

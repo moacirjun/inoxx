@@ -62,11 +62,12 @@ function marginAutoSidebar() {
     sidebar.style.marginTop = marginTop + "px";
 }
 
-function getProdutos(category, button) {
+function getProdutos(button) {
     var xmlhttp = new XMLHttpRequest(),
             preLoader = document.querySelector("#pre-loader"),
             containerProds = document.querySelector("#produtos"),
-            listProds = document.querySelector("#prodsContent");
+            listProds = document.querySelector("#prodsContent"),
+            category = button.getAttribute("value");
     
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -85,6 +86,35 @@ function getProdutos(category, button) {
     preLoader.classList.remove("escondida");
     preLoader.classList.remove("escondida-animada");
     xmlhttp.open("GET", ajaxprodutos.ajaxurl + "?action=get_produtos&category=" + category, true);
+    xmlhttp.send();
+}
+
+function getProdutosPage(button) {
+    var xmlhttp = new XMLHttpRequest(),
+            preLoader = document.querySelector("#pre-loader"),
+            listProds = document.querySelector("#prodsContent"),
+            btnCategoryAtivo = document.querySelector(".sidebar ul li span.active"),
+            category = btnCategoryAtivo.getAttribute("value");
+            paged = button.getAttribute("value");
+    
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            
+            listProds.innerHTML = this.responseText;
+            
+            preLoader.classList.add("escondida-animada");
+            scrollToPageTitle();
+        }
+    };
+    
+    var btnPageAtivo = document.querySelector("nav ul.pagination li.active");
+    var NovoBtnPageAtivo = button.parentElement;
+    
+//    btnPageAtivo.classList.remove("active");
+//    NovoBtnPageAtivo.classList.add("active");
+    preLoader.classList.remove("escondida");
+    preLoader.classList.remove("escondida-animada");
+    xmlhttp.open("GET", ajaxprodutos.ajaxurl + "?action=get_produtos&category=" + category + "&page=" + paged, true);
     xmlhttp.send();
 }
 
