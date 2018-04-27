@@ -101,16 +101,13 @@ function getProdutosPage(button) {
         paginaAtivada = paginaAtivada.getAttribute("value");
         
         switch (btnDataValue) {
-            case "previous": 
-                alert(paginaAtivada.valueOf() - 1);
+            case "previous":
                 paged = (paginaAtivada.valueOf() - 1);
                 break;
             case "next" :
-                alert(Number(paginaAtivada) + 1);
                 paged = (Number(paginaAtivada) + 1);
                 break;
-            default: 
-                alert(btnDataValue);
+            default:
                 paged = (btnDataValue);
         }
     
