@@ -2,9 +2,13 @@ window.onscroll = function() {navScroll(); marginAutoSidebar();};
 
 window.onload = function() {scrollToPageTitle(); navScroll()}
 
+var isOnMobile = function verificaTamanhoTela() {
+    return window.screen.width <= 990;
+}
+
 function navScroll() {
     //Bypass disposutivos mobile.
-    if (window.screen.width <= 990) {
+    if (isOnMobile()) {
         return;
     }
     
@@ -75,6 +79,10 @@ function getProdutos(button) {
             listProds.innerHTML = this.responseText;
             
             preLoader.classList.add("escondida-animada");
+            if (isOnMobile()) {
+                trocaNomeBotaoCategoria(button.innerText);
+                fechaListaCategorias();
+            }
             scrollToPageTitle();
         }
     };
@@ -117,6 +125,9 @@ function getProdutosPage(button) {
             listProds.innerHTML = this.responseText;
             
             preLoader.classList.add("escondida-animada");
+            if (isOnMobile()) {
+                fechaListaCategorias();
+            }
             scrollToPageTitle();
         }
     };
@@ -126,6 +137,25 @@ function getProdutosPage(button) {
     xmlhttp.open("GET", ajaxprodutos.ajaxurl +"?action=get_produtos&category=" 
                             + category + "&page=" + paged, true);
     xmlhttp.send();
+}
+
+function trocaNomeBotaoCategoria(categoriaText) {
+    var btn = document.querySelector(".btn-categorias");
+    btn.innerHTML = "Categoria - " + categoriaText;
+}
+
+function fechaListaCategorias() {
+//    var btn = document.querySelector(".btn-categorias");
+//    var lista = document.querySelector("#categorias-mobile");
+//    btn.setAttribute("aria-expanded", "false");
+//    btn.classList.remove("collapsed");
+//    lista.classList.remove("show");
+    var btn = document.querySelector(".btn-categorias");
+    var lista = document.querySelector("#categorias-mobile");
+    
+    if ( lista.classList.contains("show") ) {
+        btn.click();
+    }
 }
 
 

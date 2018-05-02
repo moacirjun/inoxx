@@ -6,6 +6,44 @@
     
     <div class="col-lg-9">
         <h1 id="page-title">Produtos</h1>
+        <div class="lista-cat-mobile">
+            <a class="btn btn-categorias dropdown-toggle" href="#categorias-mobile" data-toggle="collapse" aria-expanded="false">Categorias - Todas</a>
+            <div class="collapse" id="categorias-mobile">
+                 <?php
+        //            get_sidebar();
+                    $taxonomies = get_object_taxonomies((object) array('post_type' => $post_type));
+
+                    $terms = get_terms('category', 
+                                array(
+                                    'orderby' => 'name',
+                                    'order' => 'ASC',
+                                    'hide_empty' => '1'
+                                )
+                            );
+                ?>
+                <div class="row sticky-top">
+                    <div class="col-lg-12">
+                        <div class="sidebar">
+                            <ul>
+                                <li>
+                                    <span onclick="getProdutos(this)" value="todas" class="active">
+                                        Todas
+                                    </span>
+                                </li>
+                                <?php foreach($terms as $term) : ?>
+                                <li>
+                                    <span onclick="getProdutos(this)" value="<?php echo $term->slug ?>">
+                                        <?php echo $term->name ?>
+                                    </span>
+                                </li>
+                                <?php endforeach ?>
+                            </ul>
+                        </div>
+                        <div class="ani-produtos"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="produtos">
             <div id="prodsContent">
                 <?php $count = 1 ?>
@@ -66,7 +104,7 @@
                         )
                     );
         ?>
-        <div class="row sticky-top">
+        <div class="row sticky-top lista-cat-desktop">
             <div class="col-lg-12">
                 <div class="sidebar">
                     <h3>Categorias</h3>
